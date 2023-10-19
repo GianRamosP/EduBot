@@ -16,8 +16,8 @@ public class PantallaPrincipal extends AppCompatActivity {
         Button btnFrecuentes = findViewById(R.id.btnfrecuentes);
 
         btnPregunta.setOnClickListener(view -> {
-            //Intent intent = new Intent(PantallaPrincipal.this, PantallaPreguntas.class);
-            //startActivity(intent);
+            Intent intent = new Intent(PantallaPrincipal.this, PantallaPregunta.class);
+            startActivity(intent);
         });
 
         btnVerLibros.setOnClickListener(view -> {
