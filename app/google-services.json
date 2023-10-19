@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1025939299581",
+    "project_id": "edubotv2-5c5f7",
+    "storage_bucket": "edubotv2-5c5f7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1025939299581:android:1a6b95e1a47b6c5ee73294",
+        "android_client_info": {
+          "package_name": "com.example.edubotv2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8Yp8Dyfb-j15sSjIcZpSNC7hqL6DtjKY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
