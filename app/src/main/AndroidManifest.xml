@@ -28,6 +28,7 @@
         <activity android:name=".PantallaRegistro" />
         <activity android:name=".PantallaInicioSesion" />
         <activity android:name=".PantallaPregunta" />
+        <activity android:name=".PantallaRespuesta" />
     </application>
 
 </manifest>

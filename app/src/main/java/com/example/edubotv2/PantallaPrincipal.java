@@ -15,6 +15,8 @@ public class PantallaPrincipal extends AppCompatActivity {
         Button btnVerLibros = findViewById(R.id.btnlibros);
         Button btnFrecuentes = findViewById(R.id.btnfrecuentes);
 
+        Button btnRespuestaEnviar = findViewById(R.id.btnrespuestaenviar);
+
         btnPregunta.setOnClickListener(view -> {
             Intent intent = new Intent(PantallaPrincipal.this, PantallaPregunta.class);
             startActivity(intent);
@@ -28,6 +30,11 @@ public class PantallaPrincipal extends AppCompatActivity {
         btnFrecuentes.setOnClickListener(view -> {
             //Intent intent = new Intent(PantallaPrincipal.this, PantallaFrecuentes.class);
             //startActivity(intent);
+        });
+
+        btnRespuestaEnviar.setOnClickListener(view -> {
+            Intent intent = new Intent(PantallaPrincipal.this, PantallaRespuesta.class);
+            startActivity(intent);
         });
     }
 
