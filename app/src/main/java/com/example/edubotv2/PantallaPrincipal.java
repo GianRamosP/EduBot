@@ -23,8 +23,8 @@ public class PantallaPrincipal extends AppCompatActivity {
         });
 
         btnVerLibros.setOnClickListener(view -> {
-            //Intent intent = new Intent(PantallaPrincipal.this, PantallaGestionLibro.class);
-            //startActivity(intent);
+            Intent intent = new Intent(PantallaPrincipal.this, PantallaGestionLibro.class);
+            startActivity(intent);
         });
 
         btnFrecuentes.setOnClickListener(view -> {
