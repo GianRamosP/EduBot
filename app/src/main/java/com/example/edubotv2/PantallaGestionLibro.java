@@ -3,6 +3,8 @@ package com.example.edubotv2;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -14,6 +16,7 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import java.io.BufferedInputStream;
 import java.io.File;
@@ -22,6 +25,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import android.content.Context;
 
 public class PantallaGestionLibro extends AppCompatActivity {
 
@@ -67,7 +71,11 @@ public class PantallaGestionLibro extends AppCompatActivity {
         buttonDownload.setText("Descargar");
         buttonDownload.setGravity(Gravity.CENTER);
         buttonDownload.setOnClickListener(view -> {
-            downloadPDF();
+            if (checkInternetConnection()) {
+                downloadPDF();
+            } else {
+                showToast("No hay conexión a Internet.");
+            }
         });
 
         row.addView(textViewTitle);
@@ -96,7 +104,7 @@ public class PantallaGestionLibro extends AppCompatActivity {
     }
 
     private void startDownload() {
-        String directorioPDFs = Environment.getExternalStorageDirectory().getPath() + "/EduBot/pdfs/";
+        String directorioPDFs = getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS).getPath() + "/EduBot/pdfs/";
 
         File directorio = new File(directorioPDFs);
         if (!directorio.exists()) {
@@ -152,5 +160,28 @@ public class PantallaGestionLibro extends AppCompatActivity {
 
     private void showToast(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
+
+    private boolean checkInternetConnection() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = null;
+        if (connectivityManager != null) {
+            networkInfo = connectivityManager.getActiveNetworkInfo();
+        }
+        return networkInfo != null && networkInfo.isConnected();
+    }
+
+
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == 1) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                startDownload();
+            } else {
+                showToast("Permiso denegado. No se puede descargar el PDF.");
+            }
+        }
     }
 }
