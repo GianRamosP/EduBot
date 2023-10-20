@@ -14,9 +14,7 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -25,12 +23,10 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-
 public class PantallaGestionLibro extends AppCompatActivity {
 
     private String fileUrl = "https://firebasestorage.googleapis.com/v0/b/my-application-52c41.appspot.com/o/libro-comprension.pdf?alt=media&token=daaf485a-1d67-4a7b-941a-eb3e90be55d1";
     private String fileName = "libro-comunicacion.pdf";
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,9 +77,8 @@ public class PantallaGestionLibro extends AppCompatActivity {
         tableLayout.addView(row);
     }
 
-
-    /*-----------------------------------------------*/
     private void leerPDF() {
+        // Código para abrir la pantalla de visualización de PDF
         Intent intent = new Intent(PantallaGestionLibro.this, PantallaVisualizarPdf.class);
         startActivity(intent);
     }
@@ -101,15 +96,20 @@ public class PantallaGestionLibro extends AppCompatActivity {
     }
 
     private void startDownload() {
-        String downloadsDirPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getPath();
-        File file = new File(downloadsDirPath, fileName);
+        String directorioPDFs = Environment.getExternalStorageDirectory().getPath() + "/EduBot/pdfs/";
+
+        File directorio = new File(directorioPDFs);
+        if (!directorio.exists()) {
+            directorio.mkdirs();
+        }
+
+        String filePath = directorioPDFs + fileName;
 
         PDFDownloader downloader = new PDFDownloader();
-        downloader.execute(fileUrl, file.getAbsolutePath());
+        downloader.execute(fileUrl, filePath);
     }
 
     private class PDFDownloader extends AsyncTask<String, Void, Boolean> {
-
         @Override
         protected Boolean doInBackground(String... strings) {
             String fileUrl = strings[0];
@@ -153,5 +153,4 @@ public class PantallaGestionLibro extends AppCompatActivity {
     private void showToast(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
-    /*-------------------------------------------------*/
 }
