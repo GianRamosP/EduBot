@@ -28,8 +28,8 @@ public class PantallaPrincipal extends AppCompatActivity {
         });
 
         btnFrecuentes.setOnClickListener(view -> {
-            //Intent intent = new Intent(PantallaPrincipal.this, PantallaFrecuentes.class);
-            //startActivity(intent);
+            Intent intent = new Intent(PantallaPrincipal.this, PantallaFrecuentes.class);
+            startActivity(intent);
         });
 
         btnRespuestaEnviar.setOnClickListener(view -> {

@@ -34,6 +34,7 @@
         <activity android:name=".PantallaRespuesta" />
         <activity android:name=".PantallaVisualizarPdf" />
         <activity android:name=".PantallaGestionLibro" />
+        <activity android:name=".PantallaFrecuentes" />
     </application>
 
 </manifest>
