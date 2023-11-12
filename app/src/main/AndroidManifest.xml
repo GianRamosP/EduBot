@@ -34,7 +34,8 @@
         <activity android:name=".PantallaRespuesta" />
         <activity android:name=".PantallaVisualizarPdf" />
         <activity android:name=".PantallaGestionLibro" />
-        <activity android:name=".PantallaFrecuentes" />
+        <activity android:name="com.example.edubotv2.PantallaFrecuentes" />
+        <activity android:name=".adapter.FreqAdapter" />
     </application>
 
 </manifest>

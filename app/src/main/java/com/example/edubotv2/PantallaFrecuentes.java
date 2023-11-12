@@ -1,69 +1,51 @@
 package com.example.edubotv2;
 
 import android.os.Bundle;
-import android.widget.ListView;
+
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.ArrayList;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-import androidx.annotation.Nullable;
-
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.CollectionReference;
+import com.example.edubotv2.adapter.FreqAdapter;
+import com.example.edubotv2.model.Freq;
+import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.Query;
 
 
 public class PantallaFrecuentes extends AppCompatActivity {
+    RecyclerView mRecycler;
+    FreqAdapter mAdapter;
+    FirebaseFirestore mFirestore;
 
-    private ListView listViewPreguntas;
-    private ArrayList<String> preguntasList;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pantalla_frecuentes);
 
-        // Inicializar Firebase Authentication
-        FirebaseAuth auth = FirebaseAuth.getInstance();
-        FirebaseUser user = auth.getCurrentUser();
-        if (user != null) {
-            String userId = user.getUid();
-            // Inicializar el ListView
-            listViewPreguntas = findViewById(R.id.lvPreguntas);
-            preguntasList = new ArrayList<>();
+        mFirestore = FirebaseFirestore.getInstance();
+        mRecycler = findViewById(R.id.recycleViewSingle);
+        mRecycler.setLayoutManager(new LinearLayoutManager(this));
+        Query query = mFirestore.collection("preguntas");
 
-            // Obtener preguntas del usuario desde Firestore
-            obtenerPreguntasUsuario(userId);
-        } else {
-            // El usuario no está autenticado, maneja este caso según tus necesidades
-        }
+        FirestoreRecyclerOptions<Freq> firestoreRecyclerOptions = new FirestoreRecyclerOptions.Builder<Freq>().setQuery(query, Freq.class).build();
+        mAdapter = new FreqAdapter(firestoreRecyclerOptions);
+        mAdapter.notifyDataSetChanged();
+        mRecycler.setAdapter(mAdapter);
     }
 
-    private void obtenerPreguntasUsuario(String userId) {
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-        CollectionReference preguntasRef = db.collection("preguntas");
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mAdapter.startListening();
+    }
 
-        preguntasRef.whereEqualTo("userId", userId).get()
-                .addOnSuccessListener(queryDocumentSnapshots -> {
-                    // Se han obtenido las preguntas del usuario
-                    for (QueryDocumentSnapshot document : queryDocumentSnapshots) {
-                        // Recupera las preguntas del documento
-                        String pregunta = document.getString("pregunta");
-                        // Agrega `pregunta` a tu lista de preguntas
-                        preguntasList.add(pregunta);
-                    }
-
-                    // Crea una instancia del adaptador personalizado
-                    PreguntasAdapter adapter = new PreguntasAdapter(this, preguntasList);
-
-                    // Configura el adaptador en el ListView
-                    listViewPreguntas.setAdapter(adapter);
-                })
-                .addOnFailureListener(e -> {
-                    // Maneja errores aquí
-                });
+    @Override
+    protected void onStop() {
+        super.onStop();
+        mAdapter.startListening();
     }
 
 }

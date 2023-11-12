@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">EduBotV2</string>
+    <string name="realizar_preguntas">REALIZAR PREGUNTAS</string>
+    <string name="mis_preguntas_frecuentes">MIS PREGUNTAS FRECUENTES</string>
+    <string name="ver_libros">VER LIBROS</string>
+    <string name="seleccione_que_quiere_hacer_a_continuaci_n">Seleccione que quiere hacer a continuación</string>
+    <string name="todo">TODO</string>
+    <string name="enviar_respuestas">ENVIAR RESPUESTAS</string>
+    <string name="descargar">Descargar</string>
+    <string name="t_tulo_de_libro">Título de Libro</string>
+    <string name="visualizar">Visualizar</string>
+    <string name="ingrese_una_pregunta">Ingrese una pregunta</string>
+    <string name="buscar">Buscar</string>
 </resources>

@@ -1,0 +1,12 @@
+<resources>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Otros estilos en caso se requiera -->
+    </style>
+
+    <!-- Estilo personalizado para el botón azul -->
+    <style name="BlueButtonStyle">
+        <item name="android:background">@drawable/button_blue</item>
+        <item name="android:textColor">@color/txtblue</item>
+    </style>
+
+</resources>

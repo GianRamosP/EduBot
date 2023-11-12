@@ -9,6 +9,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class PantallaInicioSesion extends AppCompatActivity {
 
@@ -38,6 +39,12 @@ public class PantallaInicioSesion extends AppCompatActivity {
                     if (task.isSuccessful()) {
                         // Inicio de sesión exitoso
                         Toast.makeText(PantallaInicioSesion.this, "Inicio de sesión exitoso", Toast.LENGTH_SHORT).show();
+
+                        // Habilitar la persistencia de la sesión para mantener al usuario conectado
+                        FirebaseUser currentUser = mAuth.getCurrentUser();
+                        if (currentUser != null) {
+                            currentUser.getIdToken(true); // Refresca el token de autenticación para mantener la sesión activa
+                        }
 
                         // Redirigir a la pantalla principal después del inicio de sesión
                         Intent intent = new Intent(PantallaInicioSesion.this, PantallaPrincipal.class);
