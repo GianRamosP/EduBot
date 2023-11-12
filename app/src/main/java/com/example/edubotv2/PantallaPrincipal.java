@@ -23,7 +23,7 @@ public class PantallaPrincipal extends AppCompatActivity {
         });
 
         btnVerLibros.setOnClickListener(view -> {
-            Intent intent = new Intent(PantallaPrincipal.this, PantallaGestionLibro.class);
+            Intent intent = new Intent(PantallaPrincipal.this, PantallaVisualizarPdf.class);
             startActivity(intent);
         });
 

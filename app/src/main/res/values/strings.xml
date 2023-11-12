@@ -11,4 +11,5 @@
     <string name="visualizar">Visualizar</string>
     <string name="ingrese_una_pregunta">Ingrese una pregunta</string>
     <string name="buscar">Buscar</string>
+    <string name="search_book" />
 </resources>

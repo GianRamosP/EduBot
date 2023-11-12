@@ -30,6 +30,9 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
@@ -40,7 +43,8 @@ dependencies {
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation("com.google.firebase:firebase-firestore:24.8.1")
     implementation("com.google.firebase:firebase-auth:21.2.0")
-    implementation("com.joanzapata.pdfview:android-pdfview:1.0.4@aar")
+    //implementation("com.joanzapata.pdfview:android-pdfview:1.0.4@aar")
+    implementation("com.github.barteksc:android-pdf-viewer:2.8.2")
     implementation(platform("com.google.firebase:firebase-bom:32.3.1"))
     implementation("com.google.firebase:firebase-analytics")
     implementation("com.firebaseui:firebase-ui-firestore:7.2.0")
@@ -51,6 +55,9 @@ dependencies {
     /* last */
     implementation("androidx.navigation:navigation-fragment:2.5.3")
     implementation("androidx.navigation:navigation-ui:2.5.3")
+
+    /*--*/
+    implementation ("com.dmitryborodin:pdfview-android:1.1.0")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
