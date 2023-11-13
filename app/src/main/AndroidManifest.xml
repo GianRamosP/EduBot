@@ -33,6 +33,12 @@
         <activity android:name=".PantallaPregunta" />
         <activity android:name=".PantallaRespuesta" />
         <activity android:name=".PantallaVisualizarPdf" />
+        <activity android:name=".PantallaVisualizarPdf2" />
+        <activity android:name=".PantallaVisualizarPdf3" />
+        <activity android:name=".PantallaVisualizarPdf4" />
+        <activity android:name=".PantallaVisualizarPdf5" />
+        <activity android:name=".PantallaVisualizarPdf6" />
+        <activity android:name=".PantallaVisualizarPdf7" />
         <activity android:name=".PantallaGestionLibro" />
         <activity android:name="com.example.edubotv2.PantallaFrecuentes" />
         <activity android:name=".adapter.FreqAdapter" />

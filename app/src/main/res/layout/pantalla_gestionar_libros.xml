@@ -7,12 +7,89 @@
     android:layout_height="match_parent"
     tools:context=".PantallaGestionLibro">
 
-    <!--Button for generating the PDF file-->
+    <include
+        layout="@layout/barra_navegacion"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
+
     <Button
-        android:id="@+id/btnCrearPdf"
+        android:id="@+id/btnCrearPdf2"
+        android:layout_width="174dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="49dp"
+        android:layout_marginTop="183dp"
+        android:text="Parte 2" />
+
+    <TextView
+        android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Crear PDF" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="51dp"
+        android:layout_marginTop="86dp"
+        android:text="Libro de comunicación" />
+
+    <Button
+        android:id="@+id/btnCrearPdf"
+        android:layout_width="174dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="49dp"
+        android:layout_marginTop="133dp"
+        android:text="Parte 1" />
+
+    <Button
+        android:id="@+id/btnCrearPdf3"
+        android:layout_width="174dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="51dp"
+        android:layout_marginTop="233dp"
+        android:text="Parte 3" />
+
+    <Button
+        android:id="@+id/btnCrearPdf4"
+        android:layout_width="174dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="51dp"
+        android:layout_marginTop="283dp"
+        android:text="Parte 4" />
+
+    <Button
+        android:id="@+id/btnCrearPdf6"
+        android:layout_width="174dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="51dp"
+        android:layout_marginTop="383dp"
+        android:text="Parte 6" />
+
+    <Button
+        android:id="@+id/btnCrearPdf7"
+        android:layout_width="174dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="51dp"
+        android:layout_marginTop="433dp"
+        android:text="Parte 7" />
+
+    <Button
+        android:id="@+id/btnCrearPdf5"
+        android:layout_width="174dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="51dp"
+        android:layout_marginTop="333dp"
+        android:text="Parte 5" />
 
 </RelativeLayout>
